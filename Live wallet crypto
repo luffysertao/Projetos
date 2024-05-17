@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <meta charset="utf-8">
+        <title>Carteira</title>
+       
+        <style>
+
+            .wallet-container {
+                width: 600px;
+                height: 800px;
+                margin: 10px auto;
+                text-align: center;
+                border-radius: 10px;
+                box-shadow: 0 0 10px black;
+                background-color: #f3f3f3;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+            }
+
+
+            .wallet-header {
+                background-color: #3c3c3c;
+                color: #fff;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+
+
+            .wallet-balance {
+                background-color: #4CAF50;
+                color: #fff;
+                padding: 10px;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+            }
+
+
+            .wallet-balance .balance-amount {
+                margin-left: 10px;
+            }
+
+
+            #wallet-box h3 {
+                font-size: 24px;
+                font-weight: bold;
+                color: #333;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+
+
+            #wallet-box p {
+                font-size: 18px;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+
+            #wallet-box label {
+                font-size: 18px;
+                font-weight: bold;
+                color: #333;
+                text-transform: uppercase;
+                margin-right: 10px;
+            }
+
+
+            .wallet-section {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+
+            .caixa {
+                position: relative;
+                bottom: 25px;
+            }
+
+
+            .absolute {
+                background-color: #f2f2f2;
+                position: fixed;
+                top: 0px;
+                right: 90px;
+            }
+
+
+            label {
+                padding: 20px;
+            }
+
+
+            p {
+                padding: 20px;
+            }
+
+
+            body {
+                background: url('wesleyfofo.png') no-repeat center center fixed; /* Substitua 'sua_imagem.png' pelo caminho para sua imagem PNG */
+                background-size: cover; /* Para cobrir toda a área do corpo */
+                background-color: #660BA2; /* Cor de fallback caso a imagem não carregue */
+
+
+            }
+
+
+            h3 {
+                color: #BE66F8;
+                font-family: arial;
+                letter-spacing: 1px;
+            }
+
+
+            img {
+                position: relative;
+                left: 5px;
+                top: 2px;
+            }
+
+
+            .container {
+              position: fixed;
+              top: 0;
+              right: 0;
+              padding: 10px;
+            }
+
+
+            table {
+              border-collapse: collapse;
+              width: 200px;
+              border: 1px solid black;
+            }
+
+
+            th, td {
+              text-align: center;
+              padding: 5px;
+            }
+
+
+            th {
+              background-color: #ccc;
+            }
+
+
+            tr:nth-child(even) {
+              background-color: #f2f2f2;
+            }
+           
+        </style>
+
+        <script type="text/javascript">
+
+        async function getWalletWesley() {
+            const usdtResponse = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=USDTBRL");
+            const usdtData = await usdtResponse.json();
+            usdtPrice = usdtData.price;
+            const myUsdt = 0;
+            totalUsdtValue = usdtPrice * myUsdt;
+            document.getElementById("total-usdt-value").innerHTML = totalUsdtValue.toFixed(3);
+
+            const agixResponse = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=AGIXUSDT");
+            const agixData = await agixResponse.json();
+            agixPrice = agixData.price;
+            const myAgix = 4185.054;
+            totalAgixValue = myAgix * agixPrice * usdtPrice;
+            document.getElementById("total-agix-value").innerHTML = totalAgixValue.toFixed(3);
+
+            const galaResponse = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=GALAUSDT");
+            const galaData = await galaResponse.json();
+            galaPrice = galaData.price;
+            const myGala = 30292.821;
+            totalGalaValue = myGala * galaPrice * usdtPrice;
+            document.getElementById("total-gala-value").innerHTML = totalGalaValue.toFixed(3);
+
+            const maticResponse = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=MATICUSDT");
+            const maticData = await maticResponse.json();
+            maticPrice = maticData.price;
+            const myMatic = 488.969;
+            totalMaticValue = myMatic * maticPrice * usdtPrice;
+            document.getElementById("total-matic-value").innerHTML = totalMaticValue.toFixed(3);
+
+            const cakeresponse = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=CAKEUSDT");
+            const cakedata = await cakeresponse.json();
+            cakePrice = cakedata.price;
+            const myCake = 103.126;
+            totalCakeValue = cakePrice * myCake * usdtPrice;
+            document.getElementById("total-cake-value").innerHTML = totalCakeValue.toFixed(3);
+
+            const luncResponse = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=LUNCUSDT");
+            const luncData = await luncResponse.json();
+            luncPrice = luncData.price;
+            const myLunc = 2491253.396;
+            totalLuncValue = luncPrice * myLunc * usdtPrice;
+            document.getElementById("total-lunc-value").innerHTML = totalLuncValue.toFixed(3);
+
+            var saldototal = totalUsdtValue + totalAgixValue + totalGalaValue + totalMaticValue + totalCakeValue + totalLuncValue
+            document.getElementById("saldo-total").innerHTML = saldototal.toFixed(3);
+
+            var lusdt = totalUsdtValue - 0
+            document.getElementById("l-usdt").innerHTML = lusdt.toFixed(3);
+            var lagix = totalAgixValue - 6900
+            document.getElementById("l-agix").innerHTML = lagix.toFixed(3);
+            var lgala = totalGalaValue - 4800
+            document.getElementById("l-gala").innerHTML = lgala.toFixed(3);
+            var lmatic = totalMaticValue - 1800
+            document.getElementById("l-matic").innerHTML = lmatic.toFixed(3);
+            var lcake = totalCakeValue - 618
+            document.getElementById("l-cake").innerHTML = lcake.toFixed(3);
+            var llunc = totalLuncValue - 1500
+            document.getElementById("l-lunc").innerHTML = llunc.toFixed(3);
+
+            var totalBalance = saldototal
+
+            var usdtPercentage = ( totalUsdtValue / totalBalance) * 100;
+            document.getElementById("usdt-percentage").innerHTML = usdtPercentage.toFixed(2) + "%";
+
+            var agixPercentage = ( totalAgixValue / totalBalance) * 100;
+            document.getElementById("agix-percentage").innerHTML = agixPercentage.toFixed(2) + "%";
+
+            var galaPercentage = ( totalGalaValue / totalBalance) * 100;
+            document.getElementById("gala-percentage").innerHTML = galaPercentage.toFixed(2) + "%";
+
+            var maticPercentage = ( totalMaticValue / totalBalance) * 100;
+            document.getElementById("matic-percentage").innerHTML = maticPercentage.toFixed(2) + "%";
+
+            var cakePercentage = ( totalCakeValue / totalBalance) * 100;
+            document.getElementById("cake-percentage").innerHTML = cakePercentage.toFixed(2) + "%";
+
+            var luncPercentage = ( totalLuncValue / totalBalance) * 100;
+            document.getElementById("lunc-percentage").innerHTML = luncPercentage.toFixed(2) + "%";
+
+        }
+
+        getWalletWesley();
+        setInterval(getWalletWesley, 3000);
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <div class="wallet-container">
+        <div class="wallet-header">
+            <h3>CARTEIRA <img src="reference.jpg" width="50" height="30"> </h3>
+            <div class="wallet-balance">
+                Saldo Total: <span class="balance-amount" id="saldo-total"></span>
+            </div>
+        </div>
+        <div class="wallet-section">
+            <label>USDT:</label>
+            <p>R$ 0,00</p>
+            <p id="usdt-percentage"></p>
+            <p id="total-usdt-value"></p>
+        </div>
+        <div class="wallet-section">
+            <label>AGIX:</label>
+            <p>R$ 6.900</p>
+            <p id="agix-percentage"></p>
+            <p id="total-agix-value"></p>
+        </div>
+        <div class="wallet-section">
+            <label>GALA:</label>
+            <p>R$ 4.800</p>
+            <p id="gala-percentage"></p>
+            <p id="total-gala-value"></p>
+        </div>
+        <div class="wallet-section">
+            <label>MATIC:</label>
+            <p>R$ 1.800</p>
+            <p id="matic-percentage"></p>
+            <p id="total-matic-value"></p>
+        </div>
+        <div class="wallet-section">
+            <label>CAKE:</label>
+            <p>R$ 618</p>
+            <p id="cake-percentage"></p>
+            <p id="total-cake-value"></p>
+        </div>
+        <div class="wallet-section">
+            <label>LUNC:</label>
+            <p>R$ 1.500</p>
+            <p id="lunc-percentage"></p>
+            <p id="total-lunc-value"></p>
+        </div>
+
+
+        <div class="container">
+          <table>
+            <tr>
+              <th>USDT</th>
+              <th>AGIX</th>
+              <th>GALA</th>
+              <th>MATIC</th>
+              <th>CAKE</th>
+              <th>LUNC</th>
+            </tr>
+            <tr>
+              <td id="l-usdt"></td>
+              <td id="l-agix"></td>
+              <td id="l-gala"></td>
+              <td id="l-matic"></td>
+              <td id="l-cake"></td>
+              <td id="l-lunc"></td>
+
+
+            </tr>
+
+          </table>
+
+        </div>
+
+    </div>
+
+    </body>
+
+</html>
